@@ -221,13 +221,13 @@ public class backup {
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://lntinfotech.crm5.dynamics.com/");
 		driver.manage().window().maximize();
-		String emailid="PP.Raghunathan@lntinfotech.com";
+		String emailid="";
 		driver.findElement(By.id("i0116")).sendKeys(emailid);
 		driver.findElement(By.id("idSIButton9")).click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		//driver.get(driver.getCurrentUrl());
 		//driver.manage().window().maximize();
-            String password = "Newuser123";
+            String password = "";
     		driver.findElement(By.id("passwordInput")).sendKeys(password);
     		driver.findElement(By.id("submitButton")).click();
     		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
