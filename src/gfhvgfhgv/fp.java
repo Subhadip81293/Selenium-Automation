@@ -44,6 +44,8 @@ class Value {
 	String Service_Offering;
 	String Close_Date;
 	String End_Date;
+	String Username;
+	String Password;
 	Value(){
 		Account="Ingram Micro Inc";
 		Opportunity="New Opportunity";
@@ -72,6 +74,8 @@ class Value {
 		Service_Offering=formatter.formatCellValue(sh1.getRow(i).getCell(5));
 		Close_Date=formatter.formatCellValue(sh1.getRow(i).getCell(6));
 		End_Date=formatter.formatCellValue(sh1.getRow(i).getCell(7));
+		Username=formatter.formatCellValue(sh1.getRow(i).getCell(8));
+		Password=formatter.formatCellValue(sh1.getRow(i).getCell(9));
 	}
 	Value(String[] ar){
 		Account = ar[0];
@@ -328,14 +332,15 @@ class Value {
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://lntinfotech.crm5.dynamics.com/");
 		driver.manage().window().maximize();
-		String emailid="PP.Raghunathan@lntinfotech.com";
-		driver.findElement(By.id("i0116")).sendKeys(emailid);
+		//String emailid="";
+		//driver.findElement(By.id("i0116")).sendKeys(emailid);
+		driver.findElement(By.id("i0116")).sendKeys(v.Username);
 		driver.findElement(By.id("idSIButton9")).click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		//driver.get(driver.getCurrentUrl());
 		//driver.manage().window().maximize();
-            String password = "Newuser123";
-    		driver.findElement(By.id("passwordInput")).sendKeys(password);
+            	//String password = "";
+    		driver.findElement(By.id("passwordInput")).sendKeys(v.Password);
     		driver.findElement(By.id("submitButton")).click();
     		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     	driver.findElement(By.id("idBtn_Back")).click();
